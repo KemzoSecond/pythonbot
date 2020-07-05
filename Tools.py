@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from bs4 import BeautifulSoup
 import requests
-import time
 import re
 mainbot = commands.Bot(command_prefix = "-")
 
@@ -196,7 +195,7 @@ async def splashforce(ctx):
 
         await channel.send(embed = splashforce_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Polaris"])
 @commands.guild_only()
 async def polaris(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -204,7 +203,7 @@ async def polaris(ctx):
 
         await channel.send(embed = polaris_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Balko","BalkoBot","Balkobot","balkoBot","balkobot"])
 @commands.guild_only()
 async def balko(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -212,7 +211,7 @@ async def balko(ctx):
 
         await channel.send(embed = balko_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Phantom"])
 @commands.guild_only()
 async def phantom(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -220,7 +219,7 @@ async def phantom(ctx):
 
         await channel.send(embed = phantom_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Dashe"])
 @commands.guild_only()
 async def dashe(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -228,7 +227,7 @@ async def dashe(ctx):
 
         await channel.send(embed = dashe_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Cyber"])
 @commands.guild_only()
 async def cyber(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -237,7 +236,7 @@ async def cyber(ctx):
         await channel.send(embed = cyber_post)
 
 
-@mainbot.command()
+@mainbot.command(aliases=["PD","pD","Pd","Project destoyer","project destoryer","project Destroyer","Project Destroyer"])
 @commands.guild_only()
 async def pd(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -246,7 +245,7 @@ async def pd(ctx):
         await channel.send(embed = pd_post)
 
 
-@mainbot.command()
+@mainbot.command(aliases=["Wrath"])
 @commands.guild_only()
 async def wrath(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -255,7 +254,7 @@ async def wrath(ctx):
         await channel.send(embed = wrath_post)
 
 
-@mainbot.command()
+@mainbot.command(aliases=["Prism","PrismAIO","Prismaio","prismaio","prismAIO"])
 @commands.guild_only()
 async def prism(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -264,7 +263,7 @@ async def prism(ctx):
         await channel.send(embed = prism_post)
 
 
-@mainbot.command()
+@mainbot.command(aliases=["Mek","Mekpreme","MekPreme","mekpreme","mekPreme"])
 @commands.guild_only()
 async def mek(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -272,7 +271,7 @@ async def mek(ctx):
 
         await channel.send(embed = mek_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Adept"])
 @commands.guild_only()
 async def adept(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -280,7 +279,7 @@ async def adept(ctx):
 
         await channel.send(embed = adept_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Velox","Veloxpreme","VeloxPreme"])
 @commands.guild_only()
 async def velox(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -289,7 +288,7 @@ async def velox(ctx):
         await channel.send(embed = velox_post)
 
 
-@mainbot.command()
+@mainbot.command(aliases=["Scott","ScottBot","Scottbot","scottbot","scottBot"])
 @commands.guild_only()
 async def scott(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -298,7 +297,7 @@ async def scott(ctx):
         await channel.send(embed = scott_post)
 
 
-@mainbot.command()
+@mainbot.command(aliases=["Tohru","Tohruaio","TohruAIO","tohruaio"])
 @commands.guild_only()
 async def tohru(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -306,7 +305,7 @@ async def tohru(ctx):
 
         await channel.send(embed = tohru_post)
 
-@mainbot.command()
+@mainbot.command(aliases=["Swift","SwiftAIO","Swiftaio","swiftAIO","swiftaio"])
 @commands.guild_only()
 async def swift(ctx):
     channel = mainbot.get_channel(channel_id)
@@ -315,7 +314,7 @@ async def swift(ctx):
         await channel.send(embed = swift_post)
 
 
-@mainbot.command(aliases=["Restockworld","Restock","world"])
+@mainbot.command(aliases=["Restockworld","Restock","world","restockWorld"])
 @commands.guild_only()
 async def restockworld(ctx):
 
@@ -325,7 +324,7 @@ async def restockworld(ctx):
         await channel.send(embed = restockworld_post)
 
 
-@mainbot.command(aliases=["Peachypings","PeachyPings","peachy","Peachy"])
+@mainbot.command(aliases=["Peachypings","PeachyPings","peachy","Peachy","peachyPings"])
 @commands.guild_only()
 async def peachypings(ctx):
 
@@ -352,7 +351,7 @@ async def guap(ctx):
 
         await channel.send(embed = guap_post)
 
-@mainbot.command(aliases=["Bouncealerts","Bounce","bounce"])
+@mainbot.command(aliases=["Bouncealerts","Bounce","bounce","BounceAlerts"])
 @commands.guild_only()
 async def bouncealerts(ctx):
 
@@ -361,7 +360,7 @@ async def bouncealerts(ctx):
 
         await channel.send(embed = bouncealerts_post)
 
-@mainbot.command(aliases=["Hidden","Society","Hiddensociety"])
+@mainbot.command(aliases=["Hidden","Society","Hiddensociety","ahiddensociety","AHiddensociety","Ahiddensociety","AHiddenSociety","aHiddenSociety"])
 @commands.guild_only()
 async def hiddensociety(ctx):
 
