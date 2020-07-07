@@ -1,14 +1,23 @@
+
+
+##### Currently has 2 features
+
+##### 1. Botbroker prices
+
+##### 2. Invite grabber - binary converter 
+
+
 import discord
 from discord.ext import commands
 from bs4 import BeautifulSoup
 import requests
 import re
+
 mainbot = commands.Bot(command_prefix = "-")
 
-
-
 channel_id = 717262662215532620
-test_channel = 688447908613324867
+
+test_channel = 688447908613324867 ### Test 
 
 
 class BotBroker():
@@ -121,39 +130,6 @@ class BotBroker():
         return embed
 
 
-############################
-### >>>>>>  Bots  <<<<<< ###
-############################
-
-splashforce_post = BotBroker("https://botbroker.io/products/splashforce","https://i.imgur.com/br7M061.png","https://botbroker.io/bids/new/splashforce").no_lifetime()
-polaris_post = BotBroker("https://botbroker.io/products/polaris","https://res.cloudinary.com/dcbenpm7u/image/twitter_name/w_600/polarisaio.jpg","https://botbroker.io/bids/new/polaris").no_lifetime()
-balko_post = BotBroker("https://botbroker.io/products/balko","https://i.imgur.com/InY7MMU.png","https://botbroker.io/bids/new/balko").lifetime()
-phantom_post = BotBroker("https://botbroker.io/products/phantom","https://i.imgur.com/8satPLU.png","https://botbroker.io/bids/new/phantom").lifetime()
-dashe_post = BotBroker("https://botbroker.io/products/dashe","https://i.imgur.com/CV6MWXM.png","https://botbroker.io/bids/new/dashe").lifetime()
-cyber_post = BotBroker("https://botbroker.io/products/cyber-aio","https://i.imgur.com/cvdVKqb.png","https://botbroker.io/bids/new/cyber-aio").lifetime()
-pd_post = BotBroker("https://botbroker.io/products/project-destroyer","https://i.imgur.com/pF9aUGu.png","https://botbroker.io/bids/new/project-destroyer").lifetime()
-wrath_post = BotBroker("https://botbroker.io/products/wrath","https://i.imgur.com/2vkT90s.png","https://botbroker.io/bids/new/wrath").lifetime()
-prism_post = BotBroker("https://botbroker.io/products/prism","https://i.imgur.com/NxL1ajE.png","https://botbroker.io/bids/new/prism").no_lifetime()
-mek_post = BotBroker("https://botbroker.io/products/mekpreme","https://i.imgur.com/fcFl3u7.png","https://botbroker.io/bids/new/mekpreme").lifetime()
-adept_post = BotBroker("https://botbroker.io/products/adept-supreme","https://i.imgur.com/vFTqsqa.png","https://botbroker.io/bids/new/adept_supreme").lifetime()
-velox_post = BotBroker("https://botbroker.io/products/velox","https://i.imgur.com/dmKhHKd.jpg","https://botbroker.io/bids/new/velox").lifetime()
-scott_post = BotBroker("https://botbroker.io/products/scottbot","https://res.cloudinary.com/dklrin11o/image/twitter_name/w_600/scottbotv1.jpg","https://botbroker.io/bids/new/scottbot").no_lifetime()
-tohru_post = BotBroker("https://botbroker.io/products/tohruaio","https://res.cloudinary.com/dcbenpm7u/image/twitter_name/w_600/tohruaio.jpg","https://botbroker.io/bids/new/tohruaio").no_lifetime()
-swift_post = BotBroker("https://botbroker.io/products/swftaio","https://i.imgur.com/RQYnXeq.png","https://botbroker.io/bids/new/swiftaio").no_lifetime()
-
-############################
-### >>>>>  Groups  <<<<< ###
-############################
-
-excluded_post = BotBroker("https://botbroker.io/groups/excluded","https://i.imgur.com/IC75BEx.png","https://botbroker.io/bids/new/excluded").no_lifetime()
-restockworld_post = BotBroker("https://botbroker.io/groups/restock-world","https://i.imgur.com/Ow5VHqq.jpg","https://botbroker.io/bids/new/restock-world").no_lifetime()
-guap_post = BotBroker("https://botbroker.io/groups/guap","https://i.imgur.com/FRNUvJu.png","https://botbroker.io/bids/new/guap").lifetime()
-sabreio_post = BotBroker("https://botbroker.io/groups/sabreio","https://res.cloudinary.com/dklrin11o/image/twitter_name/w_600/sabreio.jpg","https://botbroker.io/bids/new/sabreio").no_lifetime()
-sitesupply_post = BotBroker("https://botbroker.io/groups/site-supply","https://i.imgur.com/WlV0Y39.png","https://botbroker.io/bids/new/site-supply").lifetime()
-hiddensociety_post = BotBroker("https://botbroker.io/groups/hidden-society","https://res.cloudinary.com/dcbenpm7u/image/twitter_name/w_600/ahiddensociety.jpg","https://botbroker.io/bids/new/hidden-society").no_lifetime()
-peachy_post = BotBroker("https://botbroker.io/groups/peachy-pings","https://i.imgur.com/mPaWntS.png","https://botbroker.io/bids/new/peachy-pings").lifetime()
-fakemonitor_post = BotBroker("https://botbroker.io/groups/fake-monitor","https://i.imgur.com/dkBeWoj.png","https://botbroker.io/bids/new/fake-monitor").no_lifetime()
-bouncealerts_post = BotBroker("https://botbroker.io/groups/bounce-alerts","https://i.imgur.com/oa2bwDx.png","https://botbroker.io/bids/new/bounce-alerts").lifetime()
 
 
 ######## Invite grabber 
@@ -184,20 +160,27 @@ async def b(ctx,*,message):
         
     await ctx.send("https://discord.gg/" + ascii_string)
 
-
-
+#############################################################################
+####### >>>>>>>>>>>>>>>>>>>>>>>>>>  Bots  <<<<<<<<<<<<<<<<<<<<<<<<<< ########
+#############################################################################
 
 @mainbot.command(aliases=["splash","force","Splashforce","SplashForce","splashForce"])
 @commands.guild_only()
 async def splashforce(ctx):
-    channel = mainbot.get_channel(channel_id)
-    if channel.id == channel_id:
+    splashforce_post = BotBroker("https://botbroker.io/products/splashforce","https://i.imgur.com/br7M061.png","https://botbroker.io/bids/new/splashforce").no_lifetime()
+    
+    channel = mainbot.get_channel(test_channel)
+    if channel.id == test_channel:
 
         await channel.send(embed = splashforce_post)
+
+
 
 @mainbot.command(aliases=["Polaris"])
 @commands.guild_only()
 async def polaris(ctx):
+    polaris_post = BotBroker("https://botbroker.io/products/polaris","https://res.cloudinary.com/dcbenpm7u/image/twitter_name/w_600/polarisaio.jpg","https://botbroker.io/bids/new/polaris").no_lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -206,6 +189,8 @@ async def polaris(ctx):
 @mainbot.command(aliases=["Balko","BalkoBot","Balkobot","balkoBot","balkobot"])
 @commands.guild_only()
 async def balko(ctx):
+    balko_post = BotBroker("https://botbroker.io/products/balko","https://i.imgur.com/InY7MMU.png","https://botbroker.io/bids/new/balko").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -214,6 +199,8 @@ async def balko(ctx):
 @mainbot.command(aliases=["Phantom"])
 @commands.guild_only()
 async def phantom(ctx):
+    phantom_post = BotBroker("https://botbroker.io/products/phantom","https://i.imgur.com/8satPLU.png","https://botbroker.io/bids/new/phantom").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -222,6 +209,8 @@ async def phantom(ctx):
 @mainbot.command(aliases=["Dashe"])
 @commands.guild_only()
 async def dashe(ctx):
+    dashe_post = BotBroker("https://botbroker.io/products/dashe","https://i.imgur.com/CV6MWXM.png","https://botbroker.io/bids/new/dashe").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -230,6 +219,8 @@ async def dashe(ctx):
 @mainbot.command(aliases=["Cyber"])
 @commands.guild_only()
 async def cyber(ctx):
+    cyber_post = BotBroker("https://botbroker.io/products/cyber-aio","https://i.imgur.com/cvdVKqb.png","https://botbroker.io/bids/new/cyber-aio").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -239,6 +230,8 @@ async def cyber(ctx):
 @mainbot.command(aliases=["PD","pD","Pd","Project destoyer","project destoryer","project Destroyer","Project Destroyer"])
 @commands.guild_only()
 async def pd(ctx):
+    pd_post = BotBroker("https://botbroker.io/products/project-destroyer","https://i.imgur.com/pF9aUGu.png","https://botbroker.io/bids/new/project-destroyer").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -248,6 +241,8 @@ async def pd(ctx):
 @mainbot.command(aliases=["Wrath"])
 @commands.guild_only()
 async def wrath(ctx):
+    wrath_post = BotBroker("https://botbroker.io/products/wrath","https://i.imgur.com/2vkT90s.png","https://botbroker.io/bids/new/wrath").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -257,6 +252,8 @@ async def wrath(ctx):
 @mainbot.command(aliases=["Prism","PrismAIO","Prismaio","prismaio","prismAIO"])
 @commands.guild_only()
 async def prism(ctx):
+    prism_post = BotBroker("https://botbroker.io/products/prism","https://i.imgur.com/NxL1ajE.png","https://botbroker.io/bids/new/prism").no_lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -266,6 +263,8 @@ async def prism(ctx):
 @mainbot.command(aliases=["Mek","Mekpreme","MekPreme","mekpreme","mekPreme"])
 @commands.guild_only()
 async def mek(ctx):
+    mek_post = BotBroker("https://botbroker.io/products/mekpreme","https://i.imgur.com/fcFl3u7.png","https://botbroker.io/bids/new/mekpreme").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -274,6 +273,8 @@ async def mek(ctx):
 @mainbot.command(aliases=["Adept"])
 @commands.guild_only()
 async def adept(ctx):
+    adept_post = BotBroker("https://botbroker.io/products/adept-supreme","https://i.imgur.com/vFTqsqa.png","https://botbroker.io/bids/new/adept_supreme").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -282,6 +283,8 @@ async def adept(ctx):
 @mainbot.command(aliases=["Velox","Veloxpreme","VeloxPreme"])
 @commands.guild_only()
 async def velox(ctx):
+    velox_post = BotBroker("https://botbroker.io/products/velox","https://i.imgur.com/dmKhHKd.jpg","https://botbroker.io/bids/new/velox").lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -291,6 +294,8 @@ async def velox(ctx):
 @mainbot.command(aliases=["Scott","ScottBot","Scottbot","scottbot","scottBot"])
 @commands.guild_only()
 async def scott(ctx):
+    scott_post = BotBroker("https://botbroker.io/products/scottbot","https://res.cloudinary.com/dklrin11o/image/twitter_name/w_600/scottbotv1.jpg","https://botbroker.io/bids/new/scottbot").no_lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -300,6 +305,8 @@ async def scott(ctx):
 @mainbot.command(aliases=["Tohru","Tohruaio","TohruAIO","tohruaio"])
 @commands.guild_only()
 async def tohru(ctx):
+    tohru_post = BotBroker("https://botbroker.io/products/tohruaio","https://res.cloudinary.com/dcbenpm7u/image/twitter_name/w_600/tohruaio.jpg","https://botbroker.io/bids/new/tohruaio").no_lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
@@ -308,15 +315,25 @@ async def tohru(ctx):
 @mainbot.command(aliases=["Swift","SwiftAIO","Swiftaio","swiftAIO","swiftaio"])
 @commands.guild_only()
 async def swift(ctx):
+    swift_post = BotBroker("https://botbroker.io/products/swftaio","https://i.imgur.com/RQYnXeq.png","https://botbroker.io/bids/new/swiftaio").no_lifetime()
+
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
 
         await channel.send(embed = swift_post)
 
 
+
+#############################################################################
+####### >>>>>>>>>>>>>>>>>>>>>>>>>  Groups  <<<<<<<<<<<<<<<<<<<<<<<<< ########
+#############################################################################
+
+
+
 @mainbot.command(aliases=["Restockworld","Restock","world","restockWorld"])
 @commands.guild_only()
 async def restockworld(ctx):
+    restockworld_post = BotBroker("https://botbroker.io/groups/restock-world","https://i.imgur.com/Ow5VHqq.jpg","https://botbroker.io/bids/new/restock-world").no_lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -327,6 +344,7 @@ async def restockworld(ctx):
 @mainbot.command(aliases=["Peachypings","PeachyPings","peachy","Peachy","peachyPings"])
 @commands.guild_only()
 async def peachypings(ctx):
+    peachy_post = BotBroker("https://botbroker.io/groups/peachy-pings","https://i.imgur.com/mPaWntS.png","https://botbroker.io/bids/new/peachy-pings").lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -336,6 +354,7 @@ async def peachypings(ctx):
 @mainbot.command(aliases=["Excluded"])
 @commands.guild_only()
 async def excluded(ctx):
+    excluded_post = BotBroker("https://botbroker.io/groups/excluded","https://i.imgur.com/IC75BEx.png","https://botbroker.io/bids/new/excluded").no_lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -345,6 +364,7 @@ async def excluded(ctx):
 @mainbot.command(aliases=["Guap"])
 @commands.guild_only()
 async def guap(ctx):
+    guap_post = BotBroker("https://botbroker.io/groups/guap","https://i.imgur.com/FRNUvJu.png","https://botbroker.io/bids/new/guap").lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -354,6 +374,8 @@ async def guap(ctx):
 @mainbot.command(aliases=["Bouncealerts","Bounce","bounce","BounceAlerts"])
 @commands.guild_only()
 async def bouncealerts(ctx):
+    bouncealerts_post = BotBroker("https://botbroker.io/groups/bounce-alerts","https://i.imgur.com/oa2bwDx.png","https://botbroker.io/bids/new/bounce-alerts").lifetime()
+
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -363,6 +385,7 @@ async def bouncealerts(ctx):
 @mainbot.command(aliases=["Hidden","Society","Hiddensociety","ahiddensociety","AHiddensociety","Ahiddensociety","AHiddenSociety","aHiddenSociety"])
 @commands.guild_only()
 async def hiddensociety(ctx):
+    hiddensociety_post = BotBroker("https://botbroker.io/groups/hidden-society","https://res.cloudinary.com/dcbenpm7u/image/twitter_name/w_600/ahiddensociety.jpg","https://botbroker.io/bids/new/hidden-society").no_lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -373,6 +396,7 @@ async def hiddensociety(ctx):
 @mainbot.command(aliases=["Site","site","supply","Supply","Sitesupply","siteSupply","SiteSupply"])
 @commands.guild_only()
 async def sitesupply(ctx):
+    sitesupply_post = BotBroker("https://botbroker.io/groups/site-supply","https://i.imgur.com/WlV0Y39.png","https://botbroker.io/bids/new/site-supply").lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -382,6 +406,7 @@ async def sitesupply(ctx):
 @mainbot.command()
 @commands.guild_only()
 async def fakemonitor(ctx):
+    fakemonitor_post = BotBroker("https://botbroker.io/groups/fake-monitor","https://i.imgur.com/dkBeWoj.png","https://botbroker.io/bids/new/fake-monitor").no_lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
@@ -391,6 +416,7 @@ async def fakemonitor(ctx):
 @mainbot.command()
 @commands.guild_only()
 async def sabreio(ctx):
+    sabreio_post = BotBroker("https://botbroker.io/groups/sabreio","https://res.cloudinary.com/dklrin11o/image/twitter_name/w_600/sabreio.jpg","https://botbroker.io/bids/new/sabreio").no_lifetime()
 
     channel = mainbot.get_channel(channel_id)
     if channel.id == channel_id:
