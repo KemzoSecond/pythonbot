@@ -169,8 +169,8 @@ async def b(ctx,*,message):
 async def splashforce(ctx):
     splashforce_post = BotBroker("https://botbroker.io/products/splashforce","https://i.imgur.com/br7M061.png","https://botbroker.io/bids/new/splashforce").no_lifetime()
     
-    channel = mainbot.get_channel(test_channel)
-    if channel.id == test_channel:
+    channel = mainbot.get_channel(channel_id)
+    if channel.id == channel_id:
 
         await channel.send(embed = splashforce_post)
 
