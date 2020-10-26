@@ -68,7 +68,11 @@ async def on_message(message):
         channel = message.channel
 
         await channel.send(help_message)
+
+    await mainbot.process_commands(message)
         
+
+
             
 ######## Invite grabber 
 @mainbot.command()
