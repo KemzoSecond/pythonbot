@@ -25,7 +25,7 @@ test_channel = 688447908613324867 ### Test
 help_message = """
 ```
 1) -i 
-* Removes Whitespace 
+* Removes whitespace 
 * Removes symbols 
 * Automatically adds the code after https://discord.gg/ to make it useful for autojoiners.
 * Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicate. 
@@ -38,6 +38,7 @@ help_message = """
 
 3) .b
 * Fixes the text that is backwards 
+* Automatically removes whitespace
 * Automatically adds the code after https://discord.gg/ to make it useful for autojoiners.
 * Removes the ' https://discord.gg/ ' if its accidentally put in the code after .b so there is no duplicate
 * Also handles ' https://discord.gg/ ' if its backwards e.g ' olleh/gg.drocsid//:sptth ' 
