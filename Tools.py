@@ -21,6 +21,54 @@ test_channel = 688447908613324867 ### Test
 
 
 
+
+help_message = """
+```
+1) -i 
+* Removes Whitespace 
+* Removes symbols 
+* Automatically adds the code after https://discord.gg/ to make it useful for autojoiners.
+* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicate. 
+
+2) -b 
+* converts binary to text and automatically puts it into a discord invite form for users to join
+* Automatically adds the code after https://discord.gg/ to make it useful for autojoiners.
+* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicate.
+
+
+3) .b
+* Makes the text backwards 
+* Automatically adds the code after https://discord.gg/ to make it useful for autojoiners.
+* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicat
+* Also handles ' https://discord.gg/ ' if its backwards e.g ' olleh/gg.drocsid//:sptth ' 
+```
+"""
+
+
+
+
+
+
+
+
+@mainbot.event
+@commands.guild_only()
+async def on_message(message):
+    if message.content.startswith('.b'):
+        the_message = str(message.content).replace(" ","").replace(".b ","").replace(".b","").replace("https://discord.gg/","").replace("/gg.drocsid//:sptth","")
+        if the_message == "":
+            pass
+        else:
+            channel = message.channel
+            backwards = str(the_message[::-1])
+
+            await channel.send("https://discord.gg/" + backwards)
+    elif message.content.startswith('-help'):
+        channel = message.channel
+
+        await channel.send(help_message)
+        
+            
 ######## Invite grabber 
 @mainbot.command()
 @commands.guild_only()
@@ -50,23 +98,14 @@ async def b(ctx,*,message):
     await ctx.send("https://discord.gg/" + ascii_string)
 
 
-help_message = """
-```
-1) -i 
-* Removes Whitespace 
-* Removes symbols 
-* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicate. 
 
-2) -b 
-* converts binary to text and automatically puts it into a discord invite form for users to join
-* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicate.
-```
-"""
 
-@mainbot.command()
-async def help(ctx):
 
-    await ctx.send(help_message)
+
+
+
+
+
 
 
         
