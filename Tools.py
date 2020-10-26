@@ -13,6 +13,8 @@ import re
 
 mainbot = commands.Bot(command_prefix = "-")
 
+mainbot.remove_command("help")
+
 channel_id = 717262662215532620
 
 test_channel = 688447908613324867 ### Test 
@@ -23,7 +25,7 @@ test_channel = 688447908613324867 ### Test
 @mainbot.command()
 @commands.guild_only()
 async def i(ctx,*,message):
-    message = str(message).replace(" ","")
+    message = str(message).replace(" ","").replace("https://discord.gg/","")
     message = re.sub("[^A-Za-z0-9]+","",message)
      
     await ctx.send("https://discord.gg/" + message)
@@ -47,7 +49,27 @@ async def b(ctx,*,message):
         
     await ctx.send("https://discord.gg/" + ascii_string)
 
-    
+
+help_message = """
+```
+1) -i 
+* Removes Whitespace 
+* Removes symbols 
+* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicate. 
+
+2) -b 
+* converts binary to text and automatically puts it into a discord invite form for users to join
+* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicate.
+```
+"""
+
+@mainbot.command()
+async def help(ctx):
+
+    await ctx.send(help_message)
+
+
+        
 token_RR = "NzA4MDAxODIwMTQ3OTc0MTk0.XvfcKA.ANFu-wYyHaNrRn57627-3JMuAyY"
 token_test = "NzE0MDgzODU1MjU0MDI4MzA4.XvfNRg.aWHB5hzC2vd0gvsgJEhvHhzDWfY"
 
