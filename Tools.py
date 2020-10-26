@@ -37,9 +37,9 @@ help_message = """
 
 
 3) .b
-* Makes the text backwards 
+* Fixes the text that is backwards 
 * Automatically adds the code after https://discord.gg/ to make it useful for autojoiners.
-* Removes the ' https://discord.gg/ ' if its accidentally put in the code after -i so there is no duplicat
+* Removes the ' https://discord.gg/ ' if its accidentally put in the code after .b so there is no duplicate
 * Also handles ' https://discord.gg/ ' if its backwards e.g ' olleh/gg.drocsid//:sptth ' 
 ```
 """
