@@ -1,10 +1,4 @@
 
-
-##### Currently has 1 features
-
-##### 2. Invite grabber - binary converter 
-
-
 import discord
 from discord.ext import commands
 from bs4 import BeautifulSoup
