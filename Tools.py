@@ -1,7 +1,7 @@
 
 import discord
 from discord.ext import commands
-from bs4 import BeautifulSoup
+from bs4 import Beautiful
 import requests
 import re
 
